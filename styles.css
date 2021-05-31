@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+:root {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    background: salmon;
+    background: yellow;
 }
 
 .searchBar {
@@ -22,9 +28,9 @@ body {
     padding-left: 10px;
     font-size: 16px;
     color: darkslategrey;
-    border: 2px indigo solid;
     border-radius: 15px;
     outline: none;
+    box-shadow: darkslategray 1px 1px 1px;
 }
 
 #button {
@@ -32,8 +38,8 @@ body {
     height: 40px;
     margin-left: 20px;
     background: whitesmoke;
-    border: 2px indigo solid;
     border-radius: 15px;
+    box-shadow: darkslategray 1px 1px 1px;
 }
 
 .menu {
@@ -102,8 +108,9 @@ body {
     color: whitesmoke;
 }
 
-.modalCard a {
-    width: 225px;
+.modalUrl {
+    width: 100px;
+    margin: 0 auto;
     margin-top: 20px;
     text-align: center;
     text-decoration: none;
@@ -112,6 +119,14 @@ body {
     color: rebeccapurple;
     background: aqua;
     box-shadow: darkblue 7px 7px 7px;
+}
+
+.modalUrl a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 40px;
+    color: rebeccapurple;
 }
 
 .container {
@@ -126,7 +141,8 @@ body {
     line-height: 70px;
     text-align: center;
     font-size: 54px;
-    color:lightpink;
+    color:whitesmoke;
+    text-shadow: darkslategray 2px 2px 2px;
 }
 
 .container .card {

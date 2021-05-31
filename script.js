@@ -2,7 +2,7 @@ window.onload = () => {
 
     let container = document.getElementById('container')
     let button = document.getElementById('button')
-    let buttonModal = document.getElementById('buttonModal')
+    let modalButton = document.getElementById('modalButton')
     let search = document.getElementById('search')
     let modalBackground = document.getElementById('modalBackground')
     let modal = document.getElementById('modal')
@@ -84,7 +84,7 @@ window.onload = () => {
         }
     }
 
-    // // Card modal expanded info
+    // // Modal card expanded info
     function cardListener(animeArray) {
         for (let i = 0; i < animeArray.length; i++) {
             document.getElementById(`"card${i}"`).addEventListener("click", () => {
@@ -103,16 +103,19 @@ window.onload = () => {
                                     <p class="synopsis">${synopsis}</p>
                                     </div>
                                 `)
-                                
+
                 modal.appendChild(newCard)
 
                 getAnimeMoreInfo(id).then(
                     (responseModal) => {
-                        for (let x = 0; x < responseModal.episodes.length; x++) {
-                            let urlEpisodio = responseModal.episodes[x].video_url
+                        
+                            
                             let newUrl = document.createElement('div')
-
-                            newUrl.setAttribute("class", "modalCard")
+                            newUrl.setAttribute("class", "modalUrl")
+                            for (let x = 0; x < responseModal.episodes.length; x++) {
+                                let urlEpisodio = responseModal.episodes[x].video_url
+                                let newUrl = document.createElement('div')
+                                newUrl.setAttribute("class", "modalUrl")
                             
                             if (urlEpisodio == null) {
                                 newUrl.innerHTML = (`
@@ -121,7 +124,7 @@ window.onload = () => {
                                 modal.appendChild(newUrl)
                             } else {
                                 newUrl.innerHTML = (`
-                                <a href="${urlEpisodio}" target="_blank" rel="noopener noreferrer">Ver Episodio ${x+1}</a>
+                                <a href="${urlEpisodio}" target="_blank" rel="noopener noreferrer">Ep. ${x+1}</a>
                                 `)
                                 modal.appendChild(newUrl)
                             }
@@ -130,13 +133,9 @@ window.onload = () => {
             })
         }
 
-        document.getElementById('modalButton').addEventListener("click", () => {
+        modalButton.addEventListener("click", () => {
             modalBackground.style.display = "none"
             modal.innerHTML = ""
         })
     }
-
-
-
-
 }
