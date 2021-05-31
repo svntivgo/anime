@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: salmon;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#search {
+    min-width: 150px;
+    width: 250px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: darkslategrey;
+    border: 2px indigo solid;
+    border-radius: 15px;
+    outline: none;
+}
+
+#button {
+    width: 100px;
+    height: 40px;
+    margin-left: 20px;
+    background: whitesmoke;
+    border: 2px indigo solid;
+    border-radius: 15px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-item {
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    color:lemonchiffon;
+    list-style: none;
+    text-decoration: underline 3px;
+}
+
+.modalBackground {
+    display: none;
+    width: 100%;
+    padding-top: 1px;
+    position: absolute;
+    top: 0vw;
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.modalBackground .modalButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.modalBackground .modal {
+    width: 400px;
+    padding: 20px;
+    margin: 60px auto;
+    background: rebeccapurple;
+    border-radius: 5px;
+    box-shadow: darkblue 7px 7px 7px;
+    cursor: pointer;
+}
+
+.modalCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalCard .title {
+    width: 225px;
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    color: aqua;
+}
+
+.modalCard .modalSynopsisContainer .synopsis {
+    width: 225px;
+    color: whitesmoke;
+}
+
+.modalCard a {
+    width: 225px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 40px;
+    color: rebeccapurple;
+    background: aqua;
+    box-shadow: darkblue 7px 7px 7px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container h1 {
+    width: 100vw;
+    padding-top: 150px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 54px;
+    color:lightpink;
+}
+
+.container .card {
+    padding: 20px;
+    margin: 50px;
+    background: rebeccapurple;
+    border-radius: 5px;
+    box-shadow: darkblue 7px 7px 7px;
+    cursor: pointer;
+    transition: 0.7s ease;
+}
+
+.card .poster {
+    border-radius: 5px;
+    box-shadow: darkblue 5px 5px 7px;
+}
+
+.card .title {
+    width: 225px;
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    color: aqua;
+}
+
+.card .synopsisContainer {
+    display: none;
+    width: 225px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    padding: 15px;
+    transition: 0.7s ease;
+}
+
+.card .synopsisContainer .synopsis {
+    color: whitesmoke;
+}
