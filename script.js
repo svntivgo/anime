@@ -1,5 +1,5 @@
 window.onload = () => {
-// a
+
     let container = document.getElementById('container')
     let button = document.getElementById('button')
     let modalButton = document.getElementById('modalButton')
@@ -15,8 +15,8 @@ window.onload = () => {
             let response = await fetch(`https://api.jikan.moe/v3/search/anime?q=${anime}`)
             response = await response.json()
             return response
-        } catch (error) {
-            console.log(error.message);
+        } catch (err) {
+            console.log(err.message);
         }
     }
 
@@ -30,6 +30,8 @@ window.onload = () => {
         }
     }
 
+    // botón barra de busqueda
+
     function buttonListener() {
         button.addEventListener('click', () => {
             getAnimeInfo(search.value)
@@ -41,6 +43,8 @@ window.onload = () => {
         })
     }
     buttonListener()
+
+    // insertar resultados de busqueda
 
     function drawCard() {
         container.innerHTML = ("")
@@ -63,7 +67,6 @@ window.onload = () => {
                                 <img src="${image}" alt="" class="cardImage">
                                 <p class="title">${title}</p>
             `)
-
             container.appendChild(newCard)
         }
         cardHover(card)
@@ -84,7 +87,8 @@ window.onload = () => {
         }
     }
 
-    // // Modal card expanded info
+    // Modal tarjeta
+
     function cardListener(animeArray) {
         for (let i = 0; i < animeArray.length; i++) {
             document.getElementById(`"card${i}"`).addEventListener("click", () => {
@@ -103,37 +107,32 @@ window.onload = () => {
                                     <p class="synopsis">${synopsis}</p>
                                     </div>
                                 `)
-
                 modal.appendChild(newCard)
-
                 getAnimeMoreInfo(id).then(
                     (responseModal) => {
-                        
-                            
+                        let newUrl = document.createElement('div')
+                        newUrl.setAttribute("class", "modalUrl")
+                        for (let x = 0; x < responseModal.episodes.length; x++) {
+                            let urlEpisodio = responseModal.episodes[x].video_url
                             let newUrl = document.createElement('div')
+
                             newUrl.setAttribute("class", "modalUrl")
-                            for (let x = 0; x < responseModal.episodes.length; x++) {
-                                let urlEpisodio = responseModal.episodes[x].video_url
-                                let newUrl = document.createElement('div')
-                                
-                                newUrl.setAttribute("class", "modalUrl")
-                            
+
                             if (urlEpisodio == null) {
                                 newUrl.innerHTML = (`
-                                    <a>El episodio ${x+1} no está disponible :(</a>
-                                `)
+                                        <a>El episodio ${x+1} no está disponible :(</a>
+                                    `)
                                 modal.appendChild(newUrl)
                             } else {
                                 newUrl.innerHTML = (`
-                                <a href="${urlEpisodio}" target="_blank" rel="noopener noreferrer">Ep. ${x+1}</a>
-                                `)
+                                    <a href="${urlEpisodio}" target="_blank" rel="noopener noreferrer">Ep. ${x+1}</a>
+                                    `)
                                 modal.appendChild(newUrl)
                             }
                         }
                     })
             })
         }
-
         modalButton.addEventListener("click", () => {
             modalBackground.style.display = "none"
             modal.innerHTML = ""
