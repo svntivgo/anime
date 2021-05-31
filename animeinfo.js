@@ -1,1 +1,0 @@
-export const suma = 2+2
