@@ -115,6 +115,7 @@ window.onload = () => {
                             for (let x = 0; x < responseModal.episodes.length; x++) {
                                 let urlEpisodio = responseModal.episodes[x].video_url
                                 let newUrl = document.createElement('div')
+                                
                                 newUrl.setAttribute("class", "modalUrl")
                             
                             if (urlEpisodio == null) {
